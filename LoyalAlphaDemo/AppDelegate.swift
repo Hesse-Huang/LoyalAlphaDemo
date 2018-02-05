@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UIView.applySwizzledMethods()
+        
+        let root = ViewController()
+        let nav = UINavigationController(rootViewController: root)
+        nav.navigationBar.prefersLargeTitles = true
+        nav.navigationBar.isTranslucent = false
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
